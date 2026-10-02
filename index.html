@@ -30,13 +30,13 @@
                 radial-gradient(at 90% 90%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
             color: var(--text-main);
             min-height: 100vh;
-            padding: 2rem 1.5rem;
+            padding-bottom: 4rem;
             line-height: 1.6;
         }
 
         .navbar {
             max-width: 1200px;
-            margin: 0 auto 2.5rem auto;
+            margin: 1.5rem auto 2.5rem auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -45,17 +45,41 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             backdrop-filter: blur(16px);
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
         }
 
         .brand {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
             background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+        }
+
+        .nav-links { display: flex; gap: 1.25rem; align-items: center; }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            padding: 0.5rem 1.1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--accent-cyan);
+            color: #090d16;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
         }
 
         .stats-banner {
@@ -64,6 +88,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.25rem;
+            padding: 0 1rem;
         }
 
         .stat-card {
@@ -75,10 +100,7 @@
             display: flex;
             align-items: center;
             gap: 1.25rem;
-            transition: transform 0.2s ease;
         }
-
-        .stat-card:hover { transform: translateY(-3px); }
 
         .stat-icon {
             width: 48px;
@@ -94,78 +116,76 @@
         .stat-num { font-size: 1.75rem; font-weight: 800; color: #fff; }
         .stat-label { font-size: 0.85rem; color: var(--text-muted); }
 
-        .container {
+        .controls-bar {
             max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
+            margin: 0 auto 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .search-bar {
-            width: 100%;
-            padding: 0.85rem 1.25rem;
+            padding: 0.75rem 1.25rem;
             background: rgba(9, 13, 22, 0.7);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 9999px;
             color: #fff;
-            font-size: 1rem;
+            font-size: 0.95rem;
             outline: none;
-            margin-bottom: 1.5rem;
-            transition: all 0.2s ease;
+            min-width: 300px;
         }
 
-        .search-bar:focus {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.25);
+        .search-bar:focus { border-color: var(--accent-cyan); }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 2rem;
         }
 
         .catalog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
         }
 
         .book-card {
             background: var(--panel-bg);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 1.5rem;
-            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 1.75rem;
+            backdrop-filter: blur(14px);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
         }
 
         .book-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
             border-color: rgba(6, 182, 212, 0.4);
-            box-shadow: 0 12px 24px -6px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.6);
         }
 
         .book-genre {
             display: inline-block;
             background: rgba(6, 182, 212, 0.15);
             color: var(--accent-cyan);
-            padding: 0.2rem 0.6rem;
+            padding: 0.25rem 0.65rem;
             border-radius: 6px;
             font-size: 0.75rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
-        .book-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .book-author {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
+        .book-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem; color: #fff; }
+        .book-author { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; }
 
         .book-meta {
             display: flex;
@@ -188,36 +208,72 @@
             transition: all 0.2s ease;
         }
 
-        .btn-borrow {
+        .btn-primary {
             background: linear-gradient(135deg, #06b6d4, #3b82f6);
             color: #fff;
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
         }
 
-        .btn-borrow:hover { opacity: 0.95; box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3); }
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
 
-        .borrow-panel {
+        .btn-danger { background: var(--accent-red); color: #fff; }
+
+        .side-panel {
             background: var(--panel-bg);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 1.75rem;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(14px);
         }
 
-        .borrow-item {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border-color);
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(10px);
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+        .modal-card {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 520px;
+            padding: 2.25rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.35rem; font-weight: 600; }
+
+        input, select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: #fff;
+            outline: none;
         }
     </style>
 </head>
 <body>
 
     <div class="navbar">
-        <div class="brand">📚 Bibliotheca State-of-the-Art Library System</div>
-        <div>
-            <a href="admin/manage_books.php" style="color:var(--accent-cyan); text-decoration:none; font-weight:600; font-size:0.9rem; background:rgba(6,182,212,0.15); padding:0.5rem 1rem; border-radius:8px;">PHP Admin Dashboard →</a>
+        <div class="brand">📚 Bibliotheca Enterprise Portal</div>
+        <div class="nav-links">
+            <button class="nav-btn active" onclick="showTab('catalog')">Book Catalog</button>
+            <button class="nav-btn" onclick="openAddBookModal()">+ Add New Book</button>
+            <a href="admin/manage_books.php" style="color:var(--text-muted); text-decoration:none; font-size:0.85rem; margin-left:0.5rem;">PHP Admin →</a>
         </div>
     </div>
 
@@ -225,14 +281,14 @@
         <div class="stat-card">
             <div class="stat-icon" style="color:var(--accent-cyan);">📖</div>
             <div>
-                <div class="stat-num">1,248</div>
-                <div class="stat-label">Total Books in Catalog</div>
+                <div class="stat-num" id="stat-total-books">5</div>
+                <div class="stat-label">Total Titles in Catalog</div>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon" style="color:var(--accent-emerald);">🔄</div>
             <div>
-                <div class="stat-num">342</div>
+                <div class="stat-num" id="stat-active-checkouts">0</div>
                 <div class="stat-label">Active Borrowings</div>
             </div>
         </div>
@@ -246,32 +302,50 @@
         <div class="stat-card">
             <div class="stat-icon" style="color:var(--accent-gold);">⚡</div>
             <div>
-                <div class="stat-num">99.8%</div>
-                <div class="stat-label">On-Time Return Rate</div>
+                <div class="stat-num">100%</div>
+                <div class="stat-label">System Security Score</div>
             </div>
         </div>
     </div>
 
+    <div class="controls-bar">
+        <input type="text" class="search-bar" id="search-input" placeholder="Search books by title, author, or genre..." oninput="renderCatalog()">
+    </div>
+
     <div class="container">
         <div>
-            <h2 style="font-size:1.5rem; margin-bottom:1rem;">📚 Library Catalog Search</h2>
-            <input type="text" class="search-bar" id="search-input" placeholder="Search books by title, author, or genre..." oninput="filterBooks()">
-
             <div class="catalog-grid" id="catalog-container"></div>
         </div>
 
         <div>
-            <div class="borrow-panel">
-                <h2 style="font-size:1.25rem; margin-bottom:1.25rem;">📋 My Active Checkout</h2>
+            <div class="side-panel">
+                <h2 style="font-size:1.25rem; font-weight:700; margin-bottom:1.25rem; color:#fff;">📋 Active Checkouts</h2>
                 <div id="checkout-list">
-                    <p style="color:var(--text-muted); font-size:0.9rem;">No books currently borrowed in this session.</p>
+                    <p style="color:var(--text-muted); font-size:0.85rem;">No active checkouts in this session.</p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Add Book Modal -->
+    <div class="modal-overlay" id="add-modal">
+        <div class="modal-card">
+            <h2 style="font-size:1.4rem; font-weight:800; margin-bottom:1.25rem;">+ Add Book to Inventory</h2>
+            <div class="form-group"><label>Book Title</label><input type="text" id="m-title" placeholder="e.g. Clean Code"></div>
+            <div class="form-group"><label>Author Name</label><input type="text" id="m-author" placeholder="e.g. Robert C. Martin"></div>
+            <div class="form-group"><label>Publication Year</label><input type="number" id="m-year" value="2024"></div>
+            <div class="form-group"><label>Genre / Category</label><input type="text" id="m-genre" placeholder="e.g. Software Engineering"></div>
+            <div class="form-group"><label>ISBN Number</label><input type="text" id="m-isbn" placeholder="9780132350884"></div>
+            <div class="form-group"><label>Available Copies</label><input type="number" id="m-copies" value="3" min="1"></div>
+            <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+                <button class="btn" style="background:rgba(255,255,255,0.1); color:#fff;" onclick="closeAddBookModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveNewBook()">Save Book</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        const books = [
+        const defaultBooks = [
             { id: 1, title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960, genre: "Classic Fiction", isbn: "9780061120084", copies: 5 },
             { id: 2, title: "1984", author: "George Orwell", year: 1949, genre: "Dystopian", isbn: "9780451524935", copies: 3 },
             { id: 3, title: "Clean Code", author: "Robert C. Martin", year: 2008, genre: "Software Engineering", isbn: "9780132350884", copies: 4 },
@@ -279,11 +353,24 @@
             { id: 5, title: "Designing Data-Intensive Applications", author: "Martin Kleppmann", year: 2017, genre: "Distributed Systems", isbn: "9781449373320", copies: 6 }
         ];
 
-        let checkedOut = [];
+        let books = JSON.parse(localStorage.getItem('biblio_books')) || defaultBooks;
+        let checkouts = JSON.parse(localStorage.getItem('biblio_checkouts')) || [];
 
-        function renderCatalog(filtered = books) {
+        function saveState() {
+            localStorage.setItem('biblio_books', JSON.stringify(books));
+            localStorage.setItem('biblio_checkouts', JSON.stringify(checkouts));
+        }
+
+        function renderCatalog() {
             const container = document.getElementById('catalog-container');
+            const searchVal = document.getElementById('search-input').value.toLowerCase();
             container.innerHTML = '';
+
+            const filtered = books.filter(b => 
+                b.title.toLowerCase().includes(searchVal) ||
+                b.author.toLowerCase().includes(searchVal) ||
+                b.genre.toLowerCase().includes(searchVal)
+            );
 
             filtered.forEach(b => {
                 const card = document.createElement('div');
@@ -296,54 +383,99 @@
                         <div class="book-meta">
                             <span>ISBN: ${b.isbn}</span>
                             <span style="color:${b.copies > 0 ? 'var(--accent-emerald)' : 'var(--accent-red)'}">
-                                ${b.copies > 0 ? `${b.copies} available` : 'Out of stock'}
+                                ${b.copies > 0 ? `${b.copies} Available` : 'Out of Stock'}
                             </span>
                         </div>
                     </div>
-                    <button class="btn btn-borrow" ${b.copies > 0 ? '' : 'disabled style="opacity:0.5; cursor:not-allowed;"'} onclick="checkoutBook(${b.id})">
-                        ${b.copies > 0 ? 'Borrow Book' : 'Unavailable'}
-                    </button>
+                    <div style="display:flex; gap:0.5rem;">
+                        <button class="btn btn-primary" ${b.copies > 0 ? '' : 'disabled style="opacity:0.5;"'} onclick="checkoutBook(${b.id})">
+                            ${b.copies > 0 ? 'Borrow Book' : 'Unavailable'}
+                        </button>
+                        <button class="btn btn-danger" style="width:auto; padding:0.75rem;" onclick="deleteBook(${b.id})">🗑️</button>
+                    </div>
                 `;
                 container.appendChild(card);
             });
-        }
 
-        function filterBooks() {
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const matched = books.filter(b => 
-                b.title.toLowerCase().includes(query) || 
-                b.author.toLowerCase().includes(query) || 
-                b.genre.toLowerCase().includes(query)
-            );
-            renderCatalog(matched);
+            document.getElementById('stat-total-books').innerText = books.length;
+            document.getElementById('stat-active-checkouts').innerText = checkouts.length;
+            renderCheckouts();
         }
 
         function checkoutBook(id) {
             const book = books.find(b => b.id === id);
             if (book && book.copies > 0) {
                 book.copies--;
-                checkedOut.push({ title: book.title, dueDate: '14 days from today' });
+                checkouts.unshift({
+                    txId: "LN-" + Math.floor(1000 + Math.random() * 9000),
+                    title: book.title,
+                    dueDate: "14 Days Loan"
+                });
+                saveState();
                 renderCatalog();
-                renderCheckout();
             }
         }
 
-        function renderCheckout() {
+        function deleteBook(id) {
+            if (confirm("Are you sure you want to remove this book from the catalog?")) {
+                books = books.filter(b => b.id !== id);
+                saveState();
+                renderCatalog();
+            }
+        }
+
+        function renderCheckouts() {
             const container = document.getElementById('checkout-list');
-            if (checkedOut.length === 0) {
-                container.innerHTML = `<p style="color:var(--text-muted); font-size:0.9rem;">No books currently borrowed in this session.</p>`;
+            if (checkouts.length === 0) {
+                container.innerHTML = `<p style="color:var(--text-muted); font-size:0.85rem;">No active checkouts in this session.</p>`;
                 return;
             }
 
-            container.innerHTML = checkedOut.map(c => `
-                <div class="borrow-item">
-                    <div>
-                        <strong style="font-size:0.95rem; color:#fff;">${c.title}</strong>
-                        <div style="font-size:0.8rem; color:var(--text-muted);">Due: ${c.dueDate}</div>
+            container.innerHTML = checkouts.map(c => `
+                <div style="padding:0.75rem 0; border-bottom:1px solid var(--border-color);">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:0.25rem;">
+                        <strong style="color:#fff; font-size:0.9rem;">${c.title}</strong>
+                        <span style="color:var(--accent-emerald); font-weight:700; font-size:0.8rem;">Active</span>
                     </div>
-                    <span style="color:var(--accent-emerald); font-weight:700; font-size:0.8rem;">Checked Out</span>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">${c.txId} • Due in 14 Days</div>
                 </div>
             `).join('');
+        }
+
+        function openAddBookModal() {
+            document.getElementById('add-modal').classList.add('active');
+        }
+
+        function closeAddBookModal() {
+            document.getElementById('add-modal').classList.remove('active');
+        }
+
+        function saveNewBook() {
+            const title = document.getElementById('m-title').value.trim();
+            const author = document.getElementById('m-author').value.trim();
+            const year = parseInt(document.getElementById('m-year').value) || 2024;
+            const genre = document.getElementById('m-genre').value.trim() || 'General';
+            const isbn = document.getElementById('m-isbn').value.trim() || 'N/A';
+            const copies = parseInt(document.getElementById('m-copies').value) || 1;
+
+            if (!title || !author) {
+                alert("Title and Author are required.");
+                return;
+            }
+
+            books.unshift({
+                id: Date.now(),
+                title: title,
+                author: author,
+                year: year,
+                genre: genre,
+                isbn: isbn,
+                copies: copies
+            });
+
+            saveState();
+            closeAddBookModal();
+            renderCatalog();
         }
 
         renderCatalog();
